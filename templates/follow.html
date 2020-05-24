@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Follow me!
+{% endblock %}
+
+{% block main %}
+
+    <h1> Enter your handle for HippoBotamus50 to follow you! </h1>
+
+    <form action="/follow" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="handle" placeholder="Handle" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit"> Follow Me </button>
+        <div> (This may take a couple of minutes.)</div>
+    </form>
+
+{% endblock %}
