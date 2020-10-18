@@ -28,8 +28,8 @@ Session(app)
  Details not included for public repo,see youtube
  demo in readme or enter your own details to test.
 '''
-username = ""
-password = ""
+username = "hippobotamus50"
+password = "password50"
 
 session=InstaPy(username=username, password=password, headless_browser=True)
 session.login()
@@ -47,10 +47,12 @@ def instagram():
     #Show follow page
     if request.method == "POST":
         #Follow the handle submitted
-        
+
         #Get sumbitted handle
         handle=request.form.get("handle")
-        
+        if not handle:
+            return render_template('follow.html')
+
         #Check the handle doesn't start with "@"
         if handle[0] == "@":
             #Drop first char
@@ -82,6 +84,9 @@ def following():
         #Get handle from user input
         handle=request.form.get("handle")
 
+        if not handle:
+            return render_template('following.html')
+
         #Check the handle doesn't start with "@"
         if handle[0] == "@":
             #Drop first char
@@ -106,6 +111,9 @@ def unfollow():
     if request.method == "POST":
         #Get handle
         handle=request.form.get("handle")
+
+        if not handle:
+            return render_template('unfollow.html')
 
         #Check the handle doesn't start with "@"
         if handle[0] == "@":

@@ -5,23 +5,24 @@
 {% endblock %}
 
 {% block main %}
+    <body id="body">
+        <h3>Enter handle to see who they are following:</h3>
 
-    <h1>Enter handle to see who they are following:</h1>
-
-    <form action="/following" method="post">
-        <div class="form-group">
-            <input autocomplete="off" autofocus class="form-control" name="handle" placeholder="Handle" type="text">
-        </div>
-        <button class="btn btn-primary" type="submit"> Get Following </button>
-    </form>
-    <div> (This may take a couple of minutes.)</div>
-    <br><br>
-    <h1> @{{handle}} is following: </h1>
-    <ul>
-        {% for item in handles %}
-            <li> {{item}}</li>
-        {% endfor %}
-    </ul>
-
+        <form action="/following" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="handle" placeholder="Handle" type="text">
+            </div>
+            <button id="active_button" class="btn btn-primary active_button" type="submit" onclick="loader()"> Get Following </button>
+            <div id="loader" style="display:none" class="loader"></div>
+            <div> (This may take a few seconds.)</div>
+        </form>
+        <br><br>
+        <h3> @{{handle}} is following: </h3>
+        <ul>
+            {% for item in handles %}
+                <li> {{item}}</li>
+            {% endfor %}
+        </ul>
+    </body>
 
 {% endblock %}

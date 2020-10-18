@@ -6,14 +6,19 @@
 
 {% block main %}
 
-    <h1> Enter your handle for HippoBotamus50 to follow you! </h1>
+    <body id="body">
 
-    <form action="/follow" method="post">
-        <div class="form-group">
-            <input autocomplete="off" autofocus class="form-control" name="handle" placeholder="Handle" type="text">
-        </div>
-        <button class="btn btn-primary" type="submit"> Follow Me </button>
-        <div> (This may take a couple of minutes.)</div>
-    </form>
+        <h3> Enter handle for HippoBotamus50 to follow! </h3>
+
+        <form action="/follow" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="handle" placeholder="Handle" type="text">
+            </div>
+            <button id="active_button" class="btn btn-primary active_button" type="submit" onclick="loader()"> Follow Me </button>
+            <div id="loader" style="display:none" class="loader"></div>
+            <div> (This may take a few seconds.)</div>
+        </form>
+
+    </body>
 
 {% endblock %}
